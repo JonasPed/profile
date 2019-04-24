@@ -1,3 +1,8 @@
 #!/bin/bash
 
+if [ -z $1 ]; then
+	echo "Search argument required. Eg. ff search_string."
+	exit 1
+fi
+
 find . -type f -exec grep -i -l $1 {} \;
