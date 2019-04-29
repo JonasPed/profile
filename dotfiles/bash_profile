@@ -1,20 +1,26 @@
-
-updateProfile() {
+checkUpdateProfile() {
 	lastUpdate=$(head -1 ~/.profile_update)
 	yesterday=$(date -d "-1 day" +%s)
 
 	if [ "${lastUpdate}" -lt "${yesterday}" ]; then
-		git -C ~/profile.git pull
-		echo $(date +%s) > ~/.profile_update
+		updateProfile
 	fi
 }
 
-if [ ! -f ~/.profile_update ]; then
+updateProfile() {
 	git -C ~/profile.git pull
-	echo $(date +%s) > ~/.profile_update
-else
+
+	if [ $? -eq 0 ]; then
+		echo $(date +%s) > ~/.profile_update
+  fi
+}
+
+
+if [ ! -f ~/.profile_update ]; then
 	updateProfile
-fi       
+else
+	checkUpdateProfile
+fi
 
 . ${DOTFILES}/aliases
 
@@ -24,4 +30,4 @@ export EDITOR=vim
 
 export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_svn_ps1)\$ '
 
-
+# vim: set syntax=sh:
