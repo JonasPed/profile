@@ -23,6 +23,25 @@ __svn_info_str ()
     return 1
 }
 
+__git_info_str ()
+{
+    # Get the physical current working directory (all symbolic links resolved)
+    local dir="$(pwd -P 2> /dev/null || echo "/")"
+
+    while [ "$dir" != "/" ]
+    do
+        if [ -d "$dir/.git" ]
+        then
+            return 0
+        fi
+
+        dir="$(dirname "$dir")"
+    done
+
+    return 1
+}
+
+
 
 # Git/Subversion prompt function
 __git_svn_ps1() {
@@ -32,7 +51,8 @@ __git_svn_ps1() {
         local r=`__svn_rev`
         local b=`__svn_branch`
         s=" [$b:$r]"
-    elif [[ -d .git ]] ; then
+    elif __git_info_str
+    then
         s=`__git_ps1`
     fi
     echo -n "$s"
