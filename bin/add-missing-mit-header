@@ -1,4 +1,6 @@
 #!/bin/sh
 
+# Recursively add missing MIT license header to all .java files in current directory. 
+
 find . -type f -name "*.java" -exec grep -i -L "The MIT License" {} \; -exec sh -c 'cat ~/mit-license.txt {} > {}.temp && mv {}.temp {}' \;
 
