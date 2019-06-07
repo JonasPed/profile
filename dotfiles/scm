@@ -62,7 +62,7 @@ __svn_branch() {
     local url=
     if __svn_info_str
     then
-        url=`svn info | awk '/URL:/ {print $2}'`
+        url=`svn info 2> /dev/null | awk '/URL:/ {print $3}'`
         if [[ $url =~ trunk ]]; then
             echo trunk
         elif [[ $url =~ /branches/ ]]; then
@@ -75,7 +75,7 @@ __svn_branch() {
 
 # Outputs the current revision
 __svn_rev() {
-    local r=$(svn info | awk '/Revision:/ {print $2}')
+    local r=$(svn info 2> /dev/null | awk '/Revision:/ {print $2}')
 
     if [ ! -z $SVN_SHOWDIRTYSTATE ]; then
         local svnst flag
