@@ -1,8 +1,9 @@
 
+# Convenient command to change to ~/development/sds/{project} folder. 
 sds() {
 	cd ~/development/sds/$1
 }
 
-
+# Alias to filter out all snap mount points.
 alias dff='df -h | grep -v snap'
 
