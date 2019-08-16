@@ -1,0 +1,40 @@
+# vim: set filetype=sh :
+
+checkUpdateProfile() {
+	lastUpdate=$(head -1 ~/.profile_update)
+	yesterday=$(date -d "-1 day" +%s)
+
+	if [ "${lastUpdate}" -lt "${yesterday}" ]; then
+		updateProfile
+	fi
+}
+
+updateProfile() {
+	git -C ${CUSTOM_PROFILE} pull
+
+	if [ $? -eq 0 ]; then
+		echo $(date +%s) > ~/.profile_update
+  fi
+}
+
+
+if [ -z "$CUSTOM_PROFILE" ]; then
+	echo "Set CUSTOM_PROFILE variable to location of GIT repo. Eg. /home/username/profile.git."
+	echo "Not loading customizations."
+else
+
+	if [ ! -f ~/.profile_update ]; then
+		updateProfile
+	else
+		checkUpdateProfile
+	fi
+
+	. ${CUSTOM_PROFILE}/dotfiles/aliases
+
+	export EDITOR=vim
+
+	. ${CUSTOM_PROFILE}/dotfiles/scm
+
+	export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[38;5;186m\]$(__git_svn_ps1)\[\033[00m\]\$ '
+fi
+# vim: set syntax=sh:
