@@ -1,7 +1,12 @@
 
 # Convenient command to change to ~/development/sds/{project} folder. 
 sds() {
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 	cd ~/development/sds/$1
+}
+
+kit() {
+	export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 }
 
 # Alias to filter out all snap mount points.
