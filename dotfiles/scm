@@ -1,6 +1,6 @@
 # If you want to see svn modifications:
 export SVN_SHOWDIRTYSTATE=1
- 
+export GIT_PS1_SHOWDIRTYSTATE=1 
 #
 # Put this in your PS1 like this:
 # PS1='\u@\h:\W\[\033[01;33m\]$(__git_svn_ps1)\[\033[00m\]$ '
