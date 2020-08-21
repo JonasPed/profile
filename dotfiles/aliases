@@ -17,5 +17,6 @@ alias dff='df -h | grep -v snap'
 #Alias kubectl if microk8s is installed
 if which microk8s > /dev/null ; then
 	alias kubectl='microk8s kubectl'
+	. kubectl_completion
 fi
 
