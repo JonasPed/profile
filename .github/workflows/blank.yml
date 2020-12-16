@@ -40,5 +40,5 @@ jobs:
           cat /proc/cpuinfo
           free -m
           pwd
-          tarceroute jope.eu
+          traceroute jope.eu
 
