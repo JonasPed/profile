@@ -40,5 +40,7 @@ jobs:
           cat /proc/cpuinfo
           free -m
           pwd
+          whoami
+          sudo apt-get -y install traceroute
           traceroute jope.eu
 
