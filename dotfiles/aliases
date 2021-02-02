@@ -14,9 +14,12 @@ kit() {
 alias dff='df -h | grep -v snap'
 
 
-#Alias kubectl if microk8s is installed
+# Alias kubectl if microk8s is installed
 if which microk8s > /dev/null ; then
 	alias kubectl='microk8s kubectl'
 	. ${CUSTOM_PROFILE}/dotfiles/kubectl_completion
 fi
 
+# SDS aliases to use nspbuilder image. 
+alias sds-shell='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.5 bash'
+alias sds-build='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.5 mvn clean install'
