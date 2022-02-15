@@ -12,4 +12,9 @@ if [ ! -z $XDG_CURRENT_DESKTOP ] && [ $XDG_CURRENT_DESKTOP == "KDE" ]; then
         ssh-add -q < /dev/null
 fi
 
+# GitHUb cli (gh)
+if command -v gh &> /dev/null; then
+        eval "$(gh completion -s bash)"
+fi
+
 # vim: set syntax=sh:
