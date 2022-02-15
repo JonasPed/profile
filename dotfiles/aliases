@@ -10,6 +10,11 @@ kit() {
 	cd ~/development/kvalitetsit/$1
 }
 
+medcom() {
+	export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	cd ~/development/medcom/$1
+}
+
 # Alias to filter out all snap mount points.
 alias dff='df -h | grep -v snap'
 
