@@ -19,4 +19,10 @@ if command -v gh &> /dev/null; then
         eval "$(gh completion -s bash)"
 fi
 
+# Helm 3 auto completion
+if command -v helm3 &> /dev/null; then
+        eval "$(helm3 completion bash)"
+fi
+
+
 # vim: set syntax=sh:
