@@ -1,19 +1,9 @@
 # vim: set filetype=sh :
 
+# Update profile from github.
 . ${CUSTOM_PROFILE}/dotfiles/profile_update
 
-if [ -z "$CUSTOM_PROFILE" ]; then
-	echo "Set CUSTOM_PROFILE variable to location of GIT repo. Eg. /home/username/profile.git."
-	echo "Not loading customizations."
-else
-
-	if [ ! -f ~/.profile_update ]; then
-		updateProfile
-	else
-		checkUpdateProfile
-	fi
-
-	. ${CUSTOM_PROFILE}/dotfiles/profile
-fi
+# Custom profile stuff
+. ${CUSTOM_PROFILE}/dotfiles/profile
 
 # vim: set syntax=sh:
