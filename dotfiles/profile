@@ -4,6 +4,10 @@
 
 export EDITOR=vim
 
+if [ -f /usr/share/git/completion/git-prompt.sh ] && [ $__git_ps1 == ""]; then
+        source /usr/share/git/completion/git-prompt.sh
+fi
+
 . ${CUSTOM_PROFILE}/dotfiles/scm
 
 PATH=${CUSTOM_PROFILE}/bin:$PATH
