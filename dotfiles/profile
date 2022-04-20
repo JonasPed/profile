@@ -27,5 +27,4 @@ if command -v helm3 &> /dev/null; then
         eval "$(helm3 completion bash)"
 fi
 
-
 # vim: set syntax=sh:
