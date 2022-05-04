@@ -1,3 +1,5 @@
+# Ensures that ssh-agent is running.
+# Adds SSH keys to ssh-agent and uses ksshaskpass as password store. 
 add_keys() {
     if [ ! -z $XDG_CURRENT_DESKTOP ] && [ $XDG_CURRENT_DESKTOP == "KDE" ]; then
             export SSH_ASKPASS=/usr/bin/ksshaskpass
