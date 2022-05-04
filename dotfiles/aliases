@@ -1,23 +1,51 @@
 
 # Convenient command to change to ~/development/sds/{project} folder. 
 sds() {
-	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+	JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	if [ -f /etc/os-release ]; then
+		source /etc/os-release
+		if [ $ID_LIKE == "arch" ]; then
+			JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+		fi
+	fi
+	export JAVA_HOME=$JAVA_HOME
 	cd ~/development/sds/$1
 }
 
 kit() {
-	export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	if [ -f /etc/os-release ]; then
+		source /etc/os-release
+		if [ $ID_LIKE == "arch" ]; then
+			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+		fi
+	fi
+	export JAVA_HOME=$JAVA_HOME
 	cd ~/development/kvalitetsit/$1
 }
 
 medcom() {
-	export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	if [ -f /etc/os-release ]; then
+		source /etc/os-release
+		if [ $ID_LIKE == "arch" ]; then
+			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+		fi
+	fi
+	export JAVA_HOME=$JAVA_HOME
 	cd ~/development/medcom/$1
 }
 
 # Alias to filter out all snap mount points.
 alias dff='df -h | grep -v snap'
 
+# Alias vi=vim if arch
+if [ -f /etc/os-release ] &&  command -v vim &> /dev/null; then
+        source /etc/os-release
+        if [ $ID_LIKE == "arch" ]; then
+                alias vi=vim
+        fi
+fi
 
 # Alias kubectl if microk8s is installed
 if command -v microk8s &> /dev/null; then

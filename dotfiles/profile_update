@@ -10,19 +10,19 @@ checkUpdateProfile() {
 }
 
 updateProfile() {
+	source $CUSTOM_PROFILE/dotfiles/add-keys
+	add_keys
 	git -C ${CUSTOM_PROFILE} pull
 
 	if [ $? -eq 0 ]; then
 		echo $(date +%s) > ~/.profile_update
-  fi
+	fi
 }
-
 
 if [ -z "$CUSTOM_PROFILE" ]; then
 	echo "Set CUSTOM_PROFILE variable to location of GIT repo. Eg. /home/username/profile.git."
 	echo "Not loading customizations."
 else
-
 	if [ ! -f ~/.profile_update ]; then
 		updateProfile
 	else
