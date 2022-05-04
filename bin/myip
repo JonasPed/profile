@@ -1,5 +1,4 @@
 #!/bin/sh
 
-curl https://ifconfig.rocks
-echo ""
+curl icanhazip.com
 
