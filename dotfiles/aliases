@@ -4,7 +4,7 @@ sds() {
 	JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ $ID_LIKE == "arch" ]; then
+		if [ x$ID_LIKE == "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 		fi
 	fi
@@ -16,7 +16,7 @@ kit() {
 	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ $ID_LIKE == "arch" ]; then
+		if [ x$ID_LIKE == "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 		fi
 	fi
@@ -28,7 +28,7 @@ medcom() {
 	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ $ID_LIKE == "arch" ]; then
+		if [ x$ID_LIKE == "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 		fi
 	fi
@@ -42,7 +42,7 @@ alias dff='df -h | grep -v snap'
 # Alias vi=vim if arch
 if [ -f /etc/os-release ] &&  command -v vim &> /dev/null; then
         source /etc/os-release
-        if [ $ID_LIKE == "arch" ]; then
+        if [ x$ID_LIKE == "xarch" ]; then
                 alias vi=vim
         fi
 fi
