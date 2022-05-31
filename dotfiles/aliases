@@ -13,11 +13,11 @@ sds() {
 }
 
 kit() {
-	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
 		if [ x$ID_LIKE == "xarch" ]; then
-			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+			JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 		fi
 	fi
 	export JAVA_HOME=$JAVA_HOME
@@ -25,11 +25,11 @@ kit() {
 }
 
 medcom() {
-	JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+	JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
 		if [ x$ID_LIKE == "xarch" ]; then
-			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+			JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 		fi
 	fi
 	export JAVA_HOME=$JAVA_HOME
