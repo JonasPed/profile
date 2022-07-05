@@ -36,6 +36,13 @@ medcom() {
 	cd ~/development/medcom/$1
 }
 
+# Set JAVA_HOME to Java 11
+alias java11='export JAVA_HOME=/usr/lib/jvm/java-11-openjdk'
+
+# Set JAVA_HOME to Java 17
+alias java17='export JAVA_HOME=/usr/lib/jvm/java-17-openjdk'
+
+
 # Alias to filter out all snap mount points.
 alias dff='df -h | grep -v snap'
 
