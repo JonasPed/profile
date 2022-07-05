@@ -3,6 +3,8 @@
 . ${CUSTOM_PROFILE}/dotfiles/aliases
 
 export EDITOR=vim
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 if [ -f /usr/share/git/completion/git-prompt.sh ] && [ $__git_ps1 == ""]; then
         source /usr/share/git/completion/git-prompt.sh
