@@ -66,3 +66,9 @@ fi
 # SDS aliases to use nspbuilder image. 
 alias sds-shell='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.8 bash'
 alias sds-build='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.8 mvn clean install'
+
+# LSD
+
+if command -v lsd &> /dev/null; then
+	alias ls='lsd'
+fi
