@@ -37,13 +37,13 @@ medcom() {
 }
 
 # Set JAVA_HOME to Java 8
-alias java8='export JAVA_HOME=/usr/lib/jvm/java-8-openjdk'
+alias java8='export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'
 
 # Set JAVA_HOME to Java 11
-alias java11='export JAVA_HOME=/usr/lib/jvm/java-11-openjdk'
+alias java11='export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
 
 # Set JAVA_HOME to Java 17
-alias java17='export JAVA_HOME=/usr/lib/jvm/java-17-openjdk'
+alias java17='export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64'
 
 
 # Alias to filter out all snap mount points.
@@ -68,7 +68,14 @@ alias sds-shell='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.soc
 alias sds-build='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.8 mvn clean install'
 
 # LSD
-
 if command -v lsd &> /dev/null; then
 	alias ls='lsd'
 fi
+
+# Decode JWT tokens
+jwtd() {
+    if [[ -x $(command -v jq) ]]; then
+         jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
+         echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
+    fi
+}
