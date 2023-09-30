@@ -10,6 +10,10 @@ if [ -f /usr/share/git/completion/git-prompt.sh ] && [ $__git_ps1 == ""]; then
         source /usr/share/git/completion/git-prompt.sh
 fi
 
+if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ] && [ $__git_ps1 == ""]; then
+        source /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
 # Command not found alias on arch 
 if [ -f /etc/os-release ] &&  [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
         source /etc/os-release
