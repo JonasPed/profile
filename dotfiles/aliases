@@ -13,14 +13,7 @@ sds() {
 }
 
 kit() {
-	JAVA_HOME=/usr/lib/jvm/java-21
-	if [ -f /etc/os-release ]; then
-		source /etc/os-release
-		if [ x$ID_LIKE == "xarch" ]; then
-			JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-		fi
-	fi
-	export JAVA_HOME=$JAVA_HOME
+	java21
 	cd ~/development/kvalitetsit/$1
 }
 
@@ -37,6 +30,7 @@ medcom() {
 }
 
 pfa() {
+	java21
 	cd ~/development/pfa/$1
 }
 
@@ -50,7 +44,16 @@ alias java11='export JAVA_HOME=/usr/lib/jvm/java-11'
 alias java17='export JAVA_HOME=/usr/lib/jvm/java-17'
 
 # Set JAVA_HOME to Java 21
-alias java21='export JAVA_HOME=/usr/lib/jvm/java-21'
+java21() {
+	JAVA_HOME=/usr/lib/jvm/java-21
+	if [ -f /etc/os-release ]; then
+		source /etc/os-release
+		if [ x$ID_LIKE == "xarch" ]; then
+			JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+		fi
+	fi
+	export JAVA_HOME=$JAVA_HOME
+}
 
 # change to development folder
 alias dev='cd $HOME/development'
