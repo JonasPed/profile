@@ -34,6 +34,11 @@ pfa() {
 	cd ~/development/pfa/$1
 }
 
+fstyr() {
+	#java21
+	cd ~/development/fstyr/$1
+}
+
 # Set JAVA_HOME to Java 8
 alias java8='export JAVA_HOME=/usr/lib/jvm/java-1.8.0'
 
