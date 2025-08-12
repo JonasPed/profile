@@ -60,6 +60,11 @@ java21() {
 	export JAVA_HOME=$JAVA_HOME
 }
 
+kit-test-kube-tunnel() {
+	ssh -D 1080 -q -N kit-test
+	echo "SSH tunnel to KIT test T0 environment."
+}
+
 # change to development folder
 alias dev='cd $HOME/development'
 
@@ -96,3 +101,9 @@ jwtd() {
          echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
     fi
 }
+
+# Alias btop to top and top to topp
+if command -v btop &> /dev/null; then
+	alias top='btop'
+	alias topp=`which top`
+fi

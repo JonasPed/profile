@@ -41,4 +41,8 @@ if command -v helm3 &> /dev/null; then
         eval "$(helm3 completion bash)"
 fi
 
+# dotnet cli tools
+if [ -d $HOME/.dotnet/tools ]; then
+        export PATH="$PATH:$HOME/.dotnet/tools"
+fi
 # vim: set syntax=sh:
