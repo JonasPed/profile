@@ -102,7 +102,12 @@ jwtd() {
     fi
 }
 
-# Alias btop to top and top to topp
+# Alias btop/htop to top and top to topp
+if command -v htop &> /dev/null; then
+	alias top='htop'
+	alias topp=`which top`
+fi
+
 if command -v btop &> /dev/null; then
 	alias top='btop'
 	alias topp=`which top`
