@@ -87,7 +87,7 @@ alias dff='df -h | grep -v snap'
 # Alias vi=vim if arch
 if [ -f /etc/os-release ] &&  command -v vim &> /dev/null; then
         source /etc/os-release
-        if [ x$ID_LIKE == "xarch" ]; then
+        if [ "$ID_LIKE" = "xarch" ]; then
                 alias vi=vim
         fi
 fi
