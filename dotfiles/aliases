@@ -4,7 +4,7 @@ sds() {
 	JAVA_HOME=/usr/lib/jvm/java-1.8.0
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ x$ID_LIKE == "xarch" ]; then
+		if [ "$ID_LIKE" = "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 		fi
 	fi
@@ -13,7 +13,7 @@ sds() {
 }
 
 kit() {
-	java25
+#	java25
 	cd ~/development/kvalitetsit/$1
 }
 
@@ -21,7 +21,7 @@ medcom() {
 	JAVA_HOME=/usr/lib/jvm/java-17
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ x$ID_LIKE == "xarch" ]; then
+		if [ "$ID_LIKE" = "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 		fi
 	fi
@@ -30,7 +30,7 @@ medcom() {
 }
 
 pfa() {
-	java25
+#	java25
 	cd ~/development/pfa/$1
 }
 
@@ -54,7 +54,7 @@ java21() {
 	JAVA_HOME=/usr/lib/jvm/java-21
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ x$ID_LIKE == "xarch" ]; then
+		if [ "$ID_LIKE" = "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 		fi
 	fi
@@ -66,7 +66,7 @@ java25() {
 	JAVA_HOME=/usr/lib/jvm/java-25
 	if [ -f /etc/os-release ]; then
 		source /etc/os-release
-		if [ x$ID_LIKE == "xarch" ]; then
+		if [ "$ID_LIKE" = "xarch" ]; then
 			JAVA_HOME=/usr/lib/jvm/java-25-openjdk
 		fi
 	fi
