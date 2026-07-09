@@ -1,0 +1,142 @@
+
+# # Convenient command to change to ~/development/sds/{project} folder. 
+# sds() {
+# 	JAVA_HOME=/usr/lib/jvm/java-1.8.0
+# 	if [ -f /etc/os-release ]; then
+# 		source /etc/os-release
+# 		if [ "$ID_LIKE" = "xarch" ]; then
+# 			JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+# 		fi
+# 	fi
+# 	export JAVA_HOME=$JAVA_HOME
+# 	cd ~/development/sds/$1
+# }
+
+function kit 
+	cd ~/development/kvalitetsit/
+end
+
+function pfa
+	cd ~/development/pfa/
+end
+
+
+# kit() {
+# #	java25
+# 	cd ~/development/kvalitetsit/$1
+# }
+
+# medcom() {
+# 	JAVA_HOME=/usr/lib/jvm/java-17
+# 	if [ -f /etc/os-release ]; then
+# 		source /etc/os-release
+# 		if [ "$ID_LIKE" = "xarch" ]; then
+# 			JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+# 		fi
+# 	fi
+# 	export JAVA_HOME=$JAVA_HOME
+# 	cd ~/development/medcom/$1
+# }
+
+# pfa() {
+# #	java25
+# 	cd ~/development/pfa/$1
+# }
+
+# fstyr() {
+# 	#java21
+# 	cd ~/development/fstyr/$1
+# }
+
+# # Set JAVA_HOME to Java 8
+# alias java8='export JAVA_HOME=/usr/lib/jvm/java-1.8.0'
+
+# # Set JAVA_HOME to Java 11
+# alias java11='export JAVA_HOME=/usr/lib/jvm/java-11'
+
+# # Set JAVA_HOME to Java 17
+# alias java17='export JAVA_HOME=/usr/lib/jvm/java-17'
+
+
+# # Set JAVA_HOME to Java 21
+# java21() {
+# 	JAVA_HOME=/usr/lib/jvm/java-21
+# 	if [ -f /etc/os-release ]; then
+# 		source /etc/os-release
+# 		if [ "$ID_LIKE" = "xarch" ]; then
+# 			JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+# 		fi
+# 	fi
+# 	export JAVA_HOME=$JAVA_HOME
+# }
+
+# # Set JAVA_HOME to Java 25
+# java25() {
+# 	JAVA_HOME=/usr/lib/jvm/java-25
+# 	if [ -f /etc/os-release ]; then
+# 		source /etc/os-release
+# 		if [ "$ID_LIKE" = "xarch" ]; then
+# 			JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+# 		fi
+# 	fi
+# 	export JAVA_HOME=$JAVA_HOME
+# }
+
+# kit-test-kube-tunnel() {
+# 	ssh -D 1080 -q -N kit-test
+# 	echo "SSH tunnel to KIT test T0 environment."
+# }
+
+# # change to development folder
+# alias dev='cd $HOME/development'
+
+# # Alias to filter out all snap mount points.
+# alias dff='df -h | grep -v snap'
+
+# # Alias vi=vim if arch
+# if [ -f /etc/os-release ] &&  command -v vim &> /dev/null; then
+#         source /etc/os-release
+#         if [ "$ID_LIKE" = "xarch" ]; then
+#                 alias vi=vim
+#         fi
+# fi
+
+# # Alias kubectl if microk8s is installed
+# if command -v microk8s &> /dev/null; then
+# 	alias kubectl='microk8s kubectl'
+# 	. ${CUSTOM_PROFILE}/dotfiles/kubectl_completion
+# fi
+
+# # SDS aliases to use nspbuilder image. 
+# alias sds-shell='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.8 bash'
+# alias sds-build='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -v $(pwd):/src -w /src registry.nspop.dk/tools/nspbuilder:2.0.8 mvn clean install'
+
+# # LSD
+# if command -v lsd &> /dev/null; then
+# 	alias ls='lsd'
+# fi
+
+# # Decode JWT tokens
+# jwtd() {
+#     if [[ -x $(command -v jq) ]]; then
+#          jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
+#          echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
+#     fi
+# }
+
+# # Alias btop/htop to top and top to topp
+# if command -v htop &> /dev/null; then
+# 	alias top='htop'
+# 	alias topp=`which top`
+# fi
+
+# if command -v btop &> /dev/null; then
+# 	alias top='btop'
+# 	alias topp=`which top`
+# fi
+
+if command -v htop &> /dev/null
+	abbr -a top htop
+	abbr -a topp top
+end
+abbr -a dff df -h
