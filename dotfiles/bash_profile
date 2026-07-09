@@ -4,10 +4,10 @@
 case $- in
     *i*)    # interactive shell
 	# Update profile from github.
-	. ${CUSTOM_PROFILE}/dotfiles/profile_update
+	. ${CUSTOM_PROFILE}/dotfiles/profile_update $CUSTOM_PROFILE
 
 	# Custom profile stuff
-	. ${CUSTOM_PROFILE}/dotfiles/profile
+	. ${CUSTOM_PROFILE}/dotfiles/profile $CUSTOM_PROFILE
 
 
 	;;
