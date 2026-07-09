@@ -12,7 +12,14 @@ The folder named bin contains various custom commands that I use. If bash_profil
 
 Clone the repository. For instance to the folder ~/profile. Add below to ~/.bashrc file. In below example repository is cloned to ~/profile.
 
+**Bash**
 ````bash
 CUSTOM_PROFILE=~/profile
 . $CUSTOM_PROFILE/dotfiles/bash_profile
+````
+
+**Fish**
+````fish
+set CUSTOM_PROFILE ~/profile
+source $CUSTOM_PROFILE/dotfiles/fish_profile
 ````
