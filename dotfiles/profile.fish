@@ -1,8 +1,14 @@
 # vim: set filetype=sh :
 
+# This file is sourced by the Fish shell to set up variuos aliases
 source $CUSTOM_PROFILE/dotfiles/aliases.fish
 
 set __fish_git_prompt_showdirtystate 1
+
+# Add ssh keys and use ksshaskpass as password store.
+source $CUSTOM_PROFILE/dotfiles/add-keys.fish
+add_keys
+
 
 # export EDITOR=vim
 # export HISTSIZE=10000
@@ -30,8 +36,6 @@ set __fish_git_prompt_showdirtystate 1
 
 # export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[38;5;186m\]$(__git_svn_ps1)\[\033[00m\]\$ '
 
-# . ${CUSTOM_PROFILE}/dotfiles/add-keys
-# add_keys
 
 # # GitHUb cli (gh)
 # if command -v gh &> /dev/null; then
