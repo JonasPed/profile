@@ -1,0 +1,12 @@
+# vim: set filetype=fish :
+
+# Only run in interactive shell
+if status is-interactive
+    # Update profile from github.
+    $CUSTOM_PROFILE/dotfiles/profile_update $CUSTOM_PROFILE
+
+    # Custom profile stuff
+    source $CUSTOM_PROFILE/dotfiles/profile.fish
+end
+
+# vim: set syntax=fish:

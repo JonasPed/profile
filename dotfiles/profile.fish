@@ -1,6 +1,5 @@
 # vim: set filetype=sh :
 
-
 source $CUSTOM_PROFILE/dotfiles/aliases.fish
 
 set __fish_git_prompt_showdirtystate 1
