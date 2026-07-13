@@ -20,6 +20,9 @@ function pfa
 	cd ~/development/pfa/
 end
 
+function dev
+	cd ~/development/
+end	
 
 # kit() {
 # #	java25
