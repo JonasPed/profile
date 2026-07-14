@@ -143,3 +143,7 @@ if command -v htop &> /dev/null
 	abbr -a topp top
 end
 abbr -a dff df -h
+
+if command -v zypper &> /dev/null
+	abbr -a zs zypper search
+end
